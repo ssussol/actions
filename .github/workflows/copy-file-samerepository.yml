@@ -5,7 +5,7 @@ on:
     paths: 'dir1/*/*.md'
   workflow_dispatch:
 jobs:
-  docit:
+  copy-test:
     runs-on: ubuntu-latest
     # https://stackoverflow.com/questions/62432172/github-action-to-copy-and-a-rename-a-file
     steps:
