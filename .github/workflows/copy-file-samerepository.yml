@@ -17,7 +17,7 @@ jobs:
           foldername=`basename "$dirname"`
           filename=`basename "$fname"`
           newname=`echo "$dirname" | sed -e "s/ /_/g"`
-          cp "${dirname}/$filename" "./dir2/${filename}-copy.md"
+          cp "${dirname}/$filename" "./dir2/${filename}"
         done
     - name: Commit files
       run: |
