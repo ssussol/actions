@@ -4,7 +4,6 @@
 SOURCE_DIR="../dir2"
 DEST_DIR="../dir3"
 
-
 # Create the destination directory if it does not exist
 mkdir -p "$DEST_DIR"
 
