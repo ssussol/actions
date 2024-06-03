@@ -2,9 +2,9 @@ name: copy markdown files
 on:
   push:
     branches: [ main ]
-    paths: 
-      - 'dir1/*/*.md'
-      - 'dir1/*/*.mdx'
+    paths:
+      - 'dir1/**/*.md'
+      - 'dir1/**/*.mdx'
   workflow_dispatch:
 jobs:
   copy-test:
