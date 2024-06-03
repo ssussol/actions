@@ -16,7 +16,7 @@ jobs:
       run: chmod +x scripts/copytest.sh
     - name: Copy the markdown files
       run: |
-        ./scripts/sync_files.sh
+        ./scripts/copytest.sh
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
