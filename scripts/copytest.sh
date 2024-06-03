@@ -1,7 +1,10 @@
 #!/bin/bash
 
+#list folders
+ls -p .. | grep '/$'
+
 # Define the source and destination directories
-SOURCE_DIR="dir2"
+SOURCE_DIR="../dir2"
 DEST_DIR="dir3"
 
 # Create the destination directory if it does not exist
