@@ -10,15 +10,13 @@ jobs:
     # https://stackoverflow.com/questions/62432172/github-action-to-copy-and-a-rename-a-file
     steps:
     - uses: actions/checkout@v4
+    - name: Install rsync
+      run: sudo apt-get install -y rsync
+    - name: Make the script files executable
+      run: chmod +x scripts/copytest.sh
     - name: Copy the markdown files
       run: |
-        find ./dir1/ -type f -name "*.md" | while read fname; do
-          dirname=`dirname "$fname"`
-          foldername=`basename "$dirname"`
-          filename=`basename "$fname"`
-          newname=`echo "$dirname" | sed -e "s/ /_/g"`
-          cp "${dirname}/$filename" "./dir2/${filename}"
-        done
+        ./scripts/sync_files.sh
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
