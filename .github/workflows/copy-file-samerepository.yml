@@ -15,7 +15,9 @@ jobs:
     - name: Install rsync
       run: sudo apt-get install -y rsync
     - name: Make the script files executable
-      run: chmod +x scripts/copytest.sh
+      run: |
+        chmod +x scripts/copytest.sh
+        chmod +x copymdfiles.sh
     - name: Copy the markdown files
       #working-directory: ./scripts
       run: |
