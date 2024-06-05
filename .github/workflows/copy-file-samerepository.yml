@@ -17,9 +17,9 @@ jobs:
     - name: Make the script files executable
       run: chmod +x scripts/copytest.sh
     - name: Copy the markdown files
-      working-directory: ./scripts
+      #working-directory: ./scripts
       run: |
-        ./copytest.sh
+        ./copymdfiles.sh
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
