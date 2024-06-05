@@ -32,3 +32,30 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  
+  sync-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Install rsync
+      run: sudo apt-get install -y rsync
+    
+    - name: Prepare directories
+      run: |
+        mkdir -p "${GITHUB_WORKSPACE}/dest"
+        # Ensure the source directory is correctly set if it's not just in the root
+        mkdir -p "${GITHUB_WORKSPACE}/source"
+    
+    - name: Make the script files executable
+      run: |
+        chmod +x scripts/sync_files.sh
+
+    - name: Run sync script
+      run: |
+        bash ./scripts/sync_files.sh
+      env:
+        SOURCE_DIR: "${GITHUB_WORKSPACE}/source"
+        DEST_DIR: "${GITHUB_WORKSPACE}/dest"
