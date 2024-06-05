@@ -22,6 +22,9 @@ jobs:
       #working-directory: ./scripts
       run: |
         ./copymdfiles.sh
+      env:
+        SOURCE_DIR: "${{ github.workspace }}/dir1"
+        DEST_DIR: "${{ github.workspace }}/dir3"
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
