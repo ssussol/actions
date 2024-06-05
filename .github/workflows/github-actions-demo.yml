@@ -45,9 +45,9 @@ jobs:
     
     - name: Prepare directories
       run: |
-        mkdir -p "${GITHUB_WORKSPACE}/dest"
+        mkdir -p "${{ github.workspace }}/dest"
         # Ensure the source directory is correctly set if it's not just in the root
-        mkdir -p "${GITHUB_WORKSPACE}/source"
+        mkdir -p "${{ github.workspace }}/source"
     
     - name: Make the script files executable
       run: |
@@ -57,5 +57,5 @@ jobs:
       run: |
         bash ./scripts/sync_files.sh
       env:
-        SOURCE_DIR: "${GITHUB_WORKSPACE}/source"
-        DEST_DIR: "${GITHUB_WORKSPACE}/dest"
+        SOURCE_DIR: "${{ github.workspace }}/source"
+        DEST_DIR: "${{ github.workspace }}/dest"
